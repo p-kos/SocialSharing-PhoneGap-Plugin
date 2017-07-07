@@ -49,6 +49,10 @@ SocialSharing.prototype.share = function (message, subject, fileOrFileArray, url
   cordova.exec(successCallback, this._getErrorCallback(errorCallback, "share"), "SocialSharing", "share", [message, subject, this._asArray(fileOrFileArray), url]);
 };
 
+SocialSharing.prototype.shareImages = function(message, images, url, successCallback, errorCallback) {
+  cordova.exec(successCallback, this._getErrorCallback(errorCallback, "shareImages"), "SocialSharing", "shareImages", [message, this._asArray(images), url]);
+};
+
 SocialSharing.prototype.shareViaTwitter = function (message, file /* multiple not allowed by twitter */, url, successCallback, errorCallback) {
   var fileArray = this._asArray(file);
   var ecb = this._getErrorCallback(errorCallback, "shareViaTwitter");

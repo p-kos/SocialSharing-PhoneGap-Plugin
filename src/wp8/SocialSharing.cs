@@ -51,6 +51,10 @@ namespace Cordova.Extension.Commands
             DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
         }
 
+        public void shareImages(string jsonArgs){
+            share(jsonArgs)
+        }
+
         public void canShareViaEmail(string jsonArgs)
         {
             DispatchCommandResult(new PluginResult(PluginResult.Status.OK));

@@ -40,6 +40,7 @@ public class SocialSharing extends CordovaPlugin {
 
   private static final String ACTION_AVAILABLE_EVENT = "available";
   private static final String ACTION_SHARE_EVENT = "share";
+  private static final String ACTION_SHARE_EVENT_IMAGES = "shareImages";
   private static final String ACTION_SHARE_WITH_OPTIONS_EVENT = "shareWithOptions";
   private static final String ACTION_CAN_SHARE_VIA = "canShareVia";
   private static final String ACTION_CAN_SHARE_VIA_EMAIL = "canShareViaEmail";
@@ -78,6 +79,8 @@ public class SocialSharing extends CordovaPlugin {
       return true;
     } else if (ACTION_SHARE_EVENT.equals(action)) {
       return doSendIntent(callbackContext, args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), null, null, false, true);
+    } else if (ACTION_SHARE_EVENT_IMAGES.equals(action)) {
+      return doSendIntent(callbackContext, args.getString(0), null, args.getString(1), args.getJSONArray(2), null, null, false, true);
     } else if (ACTION_SHARE_WITH_OPTIONS_EVENT.equals(action)) {
       return shareWithOptions(callbackContext, args.getJSONObject(0));
     } else if (ACTION_SHARE_VIA_TWITTER_EVENT.equals(action)) {

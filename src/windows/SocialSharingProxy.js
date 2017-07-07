@@ -1,7 +1,6 @@
 ﻿﻿var cordova = require('cordova');
 
-module.exports = {
-    share: function (win, fail, args) {
+function share (win, fail, args) {
         //Text Message
         var message = args[0];
         //Title 
@@ -104,8 +103,20 @@ module.exports = {
         } catch (err) {
             fail(err);
         }
+    }
+module.exports = {
+    share: share,
+    shareImages : function(win, fail, args){
+        //Text Message
+        var message = args[0];
+        //Title 
+        var subject = undefined;
+        //File(s) Path
+        var fileOrFileArray = args[1];
+        //Web link
+        var url = args[2];
+        return share(win, fail, [message, subject, fileOrFileArray, url]);
     },
-
     canShareViaEmail: function (win, fail, args) {
         win(true);
     },
